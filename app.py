@@ -361,12 +361,12 @@ else:
                     
                     try:
                         response = client.models.generate_content(
-                            model='gemini-1.5-flash',
+                            model='gemini-3.6-flash',
                             contents=processed_contents
                         )
                     except Exception:
                         response = client.models.generate_content(
-                            model='gemini-1.5-pro',
+                            model='gemini-3.6-flash',
                             contents=processed_contents
                         )
 
