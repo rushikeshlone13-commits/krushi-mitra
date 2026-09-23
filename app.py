@@ -17,7 +17,7 @@ st.set_page_config(
 # -------------------------------------------------------------
 # Google Gemini API Key
 # -------------------------------------------------------------
-GEMINI_API_KEY = ""
+GEMINI_API_KEY = "AQ.Ab8RN6JG2jmqUTrW7ffcC2y13S5NSFxwF5y0_cgHk6WczHeiDQ"
 
 # -------------------------------------------------------------
 # शेतकरी बॅकग्राउंड आणि आकर्षक २x४ बॉक्सेस CSS
@@ -361,12 +361,12 @@ else:
                     
                     try:
                         response = client.models.generate_content(
-                            model='gemini-3.1-flash',
+                            model='gemini-3.6-flash',
                             contents=processed_contents
                         )
                     except Exception:
                         response = client.models.generate_content(
-                            model='gemini-3.1-flash',
+                            model='gemini-3.6-flash',
                             contents=processed_contents
                         )
 
