@@ -17,7 +17,7 @@ st.set_page_config(
 # -------------------------------------------------------------
 # Google Gemini API Key
 # -------------------------------------------------------------
-GEMINI_API_KEY = "AQ.Ab8RN6JG2jmqUTrW7ffcC2y13S5NSFxwF5y0_cgHk6WczHeiDQ"
+GEMINI_API_KEY = "AQ.Ab8RN6JvMn2j9_f1rWeYxcgERDsGyQ9IRr04H-0XjuBRF6MDaQ"
 
 # -------------------------------------------------------------
 # शेतकरी बॅकग्राउंड आणि आकर्षक २x४ बॉक्सेस CSS
