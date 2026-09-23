@@ -357,7 +357,7 @@ else:
                     """
                     processed_contents.append(prompt)
 
-                    client = genai.Client(api_key=GEMINI_API_KEY)
+                    client = genai.Client(api_key=AQ."Ab8RN6KaYLw2LP66ZNYhlYLOQanxXLh0VB35MzWi0Y9Lginj5A")
                     
                     try:
                         response = client.models.generate_content(
@@ -366,7 +366,7 @@ else:
                         )
                     except Exception:
                         response = client.models.generate_content(
-                            model='gemini-3.6-flash',
+                            model='gemini-2.5-flash',
                             contents=processed_contents
                         )
 
