@@ -362,7 +362,7 @@ else:
                     # API KEY इथे तू स्वतः टाक
                     GEMINI_API_KEY = ""
 
-                    if not GEMINI_API_KEY or GEMINI_API_KEY == 
+                    if not GEMINI_API_KEY or GEMINI_API_KEY == "":
                         st.secrets["gemini api key"]
                         st.error("कृपया GEMINI_API_KEY मध्ये तुमची API key टाका.")
                         st.stop()
