@@ -360,13 +360,21 @@ else:
                     # Gemini Client
                     # ---------------------------------------------------------
                     # API KEY इथे तू स्वतः टाक
-                    GEMINI_API_KEY = "AQ.Ab8RN6KKQQFm7fHLugbbQCA6a8H1K_uGHxSCyyybxA0s2EYiXQ"
+                    import os
 
-                    if not GEMINI_API_KEY or GEMINI_API_KEY == "AQ.Ab8RN6KKQQFm7fHLugbbQCA6a8H1K_uGHxSCyyybxA0s2EYiXQ":    
-                        st.error("कृपया GEMINI_API_KEY मध्ये तुमची API key टाका.")
+                    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+                    if not GEMINI_API_KEY:
+                        try:
+                            GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+                        except:
+                            GEMINI_API_KEY = ""
+
+                    if not GEMINI_API_KEY:
+                        st.error("GEMINI_API_KEY सापडली नाही.")
                         st.stop()
 
-                    client = genai.Client(api_key="AQ.Ab8RN6KKQQFm7fHLugbbQCA6a8H1K_uGHxSCyyybxA0s2EYiXQ")
+                    client = genai.Client(api_key=GEMINI_API_KEY)
 
                     # Available models - fallback क्रम
                     models_to_try = [
