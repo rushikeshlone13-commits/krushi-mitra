@@ -360,7 +360,7 @@ else:
                     # Gemini Client
                     # ---------------------------------------------------------
                     # API KEY इथे तू स्वतः टाक
-                    GEMINI_API_KEY = ""
+                    GEMINI_API_KEY = "AQ.Ab8RN6KKQQFm7fHLugbbQCA6a8H1K_uGHxSCyyybxA0s2EYiXQ"
 
                     if not GEMINI_API_KEY or GEMINI_API_KEY == "AQ.Ab8RN6KKQQFm7fHLugbbQCA6a8H1K_uGHxSCyyybxA0s2EYiXQ":    
                         st.error("कृपया GEMINI_API_KEY मध्ये तुमची API key टाका.")
