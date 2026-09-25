@@ -362,12 +362,11 @@ else:
                     # API KEY इथे तू स्वतः टाक
                     GEMINI_API_KEY = ""
 
-                    if not GEMINI_API_KEY or GEMINI_API_KEY == "":
-                        st.secrets["gemini api key"]
+                    if not GEMINI_API_KEY or GEMINI_API_KEY == "AQ.Ab8RN6KKQQFm7fHLugbbQCA6a8H1K_uGHxSCyyybxA0s2EYiXQ":    
                         st.error("कृपया GEMINI_API_KEY मध्ये तुमची API key टाका.")
                         st.stop()
 
-                    client = genai.Client(api_key="")
+                    client = genai.Client(api_key="AQ.Ab8RN6KKQQFm7fHLugbbQCA6a8H1K_uGHxSCyyybxA0s2EYiXQ")
 
                     # Available models - fallback क्रम
                     models_to_try = [
