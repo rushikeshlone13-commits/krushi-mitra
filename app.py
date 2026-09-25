@@ -17,7 +17,6 @@ st.set_page_config(
 # -------------------------------------------------------------
 # Google Gemini API Key
 # -------------------------------------------------------------
-GEMINI_API_KEY = "AQ.Ab8RN6JvMn2j9_f1rWeYxcgERDsGyQ9IRr04H-0XjuBRF6MDaQ"
 
 # -------------------------------------------------------------
 # शेतकरी बॅकग्राउंड आणि आकर्षक २x४ बॉक्सेस CSS
@@ -357,17 +356,52 @@ else:
                     """
                     processed_contents.append(prompt)
 
+                    # ---------------------------------------------------------
+                    # Gemini Client
+                    # ---------------------------------------------------------
+                    # API KEY इथे तू स्वतः टाक
+                    GEMINI_API_KEY = ""
+
+                    if not GEMINI_API_KEY or GEMINI_API_KEY == "PASTE_YOUR_API_KEY_HERE":
+                        st.error("कृपया GEMINI_API_KEY मध्ये तुमची API key टाका.")
+                        st.stop()
+
                     client = genai.Client(api_key="")
-                    
-                    try:
-                        response = client.models.generate_content(
-                            model='gemini-3.5-flash',
-                            contents=processed_contents
-                        )
-                    except Exception:
-                        response = client.models.generate_content(
-                            model='gemini-3.8-flash',
-                            contents=processed_contents
+
+                    # Available models - fallback क्रम
+                    models_to_try = [
+                        "gemini-3.5-flash-lite",
+                        "gemini-3.6-flash",
+                        "gemini-3.8-flash"
+                    ]
+
+                    response = None
+                    last_error = None
+
+                    for model_name in models_to_try:
+                        try:
+                            status.info(
+                                f"Gemini {model_name} वापरून रोगाचे विश्लेषण करत आहे..."
+                            )
+
+                            response = client.models.generate_content(
+                                model=model_name,
+                                contents=processed_contents
+                            )
+
+                            if response and response.text:
+                                break
+
+                        except Exception as e:
+                            last_error = e
+                            continue
+
+                    # सर्व models fail झाले
+                    if response is None:
+                        raise Exception(
+                            "सध्या Gemini API कडून response मिळत नाही. "
+                            "थोड्या वेळाने पुन्हा प्रयत्न करा.\n\n"
+                            f"Last error: {last_error}"
                         )
 
                     prog.progress(100)
