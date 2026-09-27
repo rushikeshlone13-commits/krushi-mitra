@@ -360,19 +360,7 @@ else:
                     # Gemini Client
                     # ---------------------------------------------------------
                     # API KEY इथे तू स्वतः टाक
-                    import os
-
-                    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-
-                    if not GEMINI_API_KEY:
-                        try:
-                            GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
-                        except:
-                            GEMINI_API_KEY = ""
-
-                    if not GEMINI_API_KEY:
-                        st.error("GEMINI_API_KEY सापडली नाही.")
-                        st.stop()
+                    GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 
                     client = genai.Client(api_key=GEMINI_API_KEY)
 
