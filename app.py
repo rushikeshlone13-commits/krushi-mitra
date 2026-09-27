@@ -410,7 +410,7 @@ else:
                         <h3 style="color: #1b5e20; margin-top:0;">🌾 कृषी-AI तपासणी अहवाल:</h3>
                     </div>
                     """, unsafe_allow_html=True)
-                    st.markdown(response.text)
+                    st.markdown(f'<div style="color: black;">{response.text}</div>', unsafe_allow_html=True)
 
                 except Exception as e:
                     prog.empty()
